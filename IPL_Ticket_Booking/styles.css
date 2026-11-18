@@ -1,0 +1,383 @@
+:root {
+    --primary: #071b3a;
+    --accent: #f5b82e;
+    --background: #f4f6fa;
+    --text: #222222;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+section {
+    padding: 60px 8%;
+    scroll-margin-top: 80px;
+}
+
+h2 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+h3 {
+    margin: 15px 0;
+    color: var(--primary);
+}
+
+/* Navbar */
+header {
+    background-color: #041024;
+    border-bottom: 2px solid var(--accent);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 15px 8%;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h2 {
+    color: var(--white);
+    margin: 0;
+    font-size: 22px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--accent);
+}
+
+/* Hero Section */
+#home {
+    background: linear-gradient(135deg, #071b3a, #174b82);
+    color: var(--white);
+    text-align: center;
+    padding: 150px 20px 100px;
+}
+
+#home h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+#home p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--primary);
+    padding: 12px 25px;
+    margin: 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: var(--white);
+    transform: translateY(-3px);
+}
+
+/* About Section */
+#about {
+    background-color: var(--background);
+    text-align: center;
+}
+
+#about p {
+    max-width: 900px;
+    margin: 0 auto 30px;
+    line-height: 1.8;
+}
+
+#about h3 {
+    font-size: 22px;
+    margin: 30px 0 20px;
+}
+
+#about ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto 30px;
+    padding: 0;
+    list-style: none;
+}
+
+#about li {
+    background-color: var(--white);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 5px solid var(--accent);
+    box-shadow: 0 8px 24px rgba(7, 27, 58, 0.16);
+    transition: 0.3s;
+}
+
+#about li:hover {
+    transform: translateY(-4px);
+    background-color: #fff8e8;
+    box-shadow: 0 12px 28px rgba(7, 27, 58, 0.24);
+}
+
+/* Team Logo Color Pointers */
+#about ul:first-of-type li:nth-child(1) { border-left-color: #d11d27; } /* Royal Challengers Bengaluru */
+#about ul:first-of-type li:nth-child(2) { border-left-color: #f9cd05; } /* Chennai Super Kings */
+#about ul:first-of-type li:nth-child(3) { border-left-color: #004ba0; } /* Mumbai Indians */
+#about ul:first-of-type li:nth-child(4) { border-left-color: #3a225d; } /* Kolkata Knight Riders */
+#about ul:first-of-type li:nth-child(5) { border-left-color: #ff822a; } /* Sunrisers Hyderabad */
+#about ul:first-of-type li:nth-child(6) { border-left-color: #ea1a85; } /* Rajasthan Royals */
+#about ul:first-of-type li:nth-child(7) { border-left-color: #0078bc; } /* Delhi Capitals */
+#about ul:first-of-type li:nth-child(8) { border-left-color: #ed1b24; } /* Punjab Kings */
+#about ul:first-of-type li:nth-child(9) { border-left-color: #1b2133; } /* Gujarat Titans */
+#about ul:first-of-type li:nth-child(10) { border-left-color: #00a8e8; } /* Lucknow Super Giants */
+
+/* Match Schedule & Filter */
+#matches h2 {
+    text-align: center;
+}
+
+#team {
+    padding: 8px 12px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-left: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--white);
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(7, 27, 58, 0.18);
+}
+
+th {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 15px;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #dddddd;
+}
+
+#matches td:nth-child(2) {
+    font-weight: bold;
+    color: var(--primary);
+}
+
+tbody tr:hover {
+    background-color: #fff4d6;
+}
+
+table a {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--primary);
+    padding: 6px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+table a:hover {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+/* Booking Section (Form + Summary Side-by-Side) */
+#booking {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+#booking h2 {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+form {
+    flex: 2;
+    min-width: 300px;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(7, 27, 58, 0.16);
+}
+
+form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+form input:focus,
+form select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+button {
+    width: 100%;
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 13px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: var(--accent);
+    color: var(--primary);
+}
+
+aside {
+    flex: 1;
+    min-width: 260px;
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 5px solid var(--accent);
+    box-shadow: 0 8px 24px rgba(7, 27, 58, 0.16);
+}
+
+aside h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 10px;
+}
+
+aside p {
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+/* My Bookings Section */
+#mybookings {
+    background-color: var(--white);
+    text-align: center;
+}
+
+#mybookings p {
+    margin-top: 15px;
+    color: #666666;
+}
+
+/* Guidelines Section */
+#guidelines article {
+    background-color: var(--white);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    border-left: 5px solid var(--accent);
+    box-shadow: 0 8px 24px rgba(7, 27, 58, 0.16);
+}
+
+#guidelines article h3 {
+    margin-top: 0;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary);
+    color: var(--white);
+    text-align: center;
+    padding: 25px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    #home {
+        padding: 160px 20px 80px;
+    }
+
+    #home h1 {
+        font-size: 28px;
+    }
+
+    section {
+        padding: 40px 5%;
+    }
+
+    #about ul {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        font-size: 13px;
+    }
+}
