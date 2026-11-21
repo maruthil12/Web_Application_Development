@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Tickets - IPL 2026</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <header>
+      <nav>
+        <h2>IPL 2026 TICKET BOOKING</h2>
+
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#matches">Matches</a></li>
+          <li><a href="booking.html">Book Ticket</a></li>
+          <li><a href="index.html#guidelines">Guidelines</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Ticket Booking Form Section -->
+    <section id="booking" style="padding-top: 120px">
+      <h2>Book Your IPL 2026 Tickets</h2>
+
+      <form action="#" method="get">
+        <!-- Personal Details -->
+        <label for="name">Full Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your full name"
+          minlength="3"
+          maxlength="40"
+          required
+        />
+
+        <label for="email">Email Address:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="example@email.com"
+          required
+        />
+
+        <label for="phone">Phone Number (10 digits):</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="Enter 10-digit mobile number"
+          minlength="10"
+          maxlength="10"
+          pattern="[0-9]{10}"
+          title="Please enter a valid 10-digit phone number"
+          required
+        />
+
+        <!-- Match & Stand Dropdowns -->
+        <label for="match">Select Match:</label>
+        <select id="match" name="match" required>
+          <option value="">-- Choose a Match --</option>
+          <option value="RCB vs CSK">
+            Match 1: RCB vs CSK (15 April 2026 - Bengaluru)
+          </option>
+          <option value="MI vs KKR">
+            Match 2: MI vs KKR (17 April 2026 - Mumbai)
+          </option>
+          <option value="SRH vs RR">
+            Match 3: SRH vs RR (19 April 2026 - Hyderabad)
+          </option>
+          <option value="CSK vs MI">
+            Match 4: CSK vs MI (21 April 2026 - Chennai)
+          </option>
+        </select>
+
+        <label for="stand">Stand Category:</label>
+        <select id="stand" name="stand" required>
+          <option value="">-- Select Stand Category --</option>
+          <option value="General">General Stand (₹700 - ₹900)</option>
+          <option value="Premium">Premium Stand (₹1800 - ₹2200)</option>
+          <option value="VIP">VIP Hospitality Box (₹4500 - ₹5500)</option>
+        </select>
+
+        <!-- Quantity -->
+        <label for="quantity">Number of Tickets (Max 10):</label>
+        <input
+          type="number"
+          id="quantity"
+          name="quantity"
+          placeholder="Enter number of tickets"
+          min="1"
+          max="10"
+          required
+        />
+
+        <!-- Radio Buttons: Ticket Delivery Mode -->
+        <label>Ticket Delivery Mode:</label>
+        <div class="choice-group">
+          <label class="inline-choice">
+            <input type="radio" name="delivery" value="E-Ticket" required />
+            M-Ticket / Email E-Ticket
+          </label>
+          <label class="inline-choice">
+            <input type="radio" name="delivery" value="Box Office" /> Stadium
+            Box Office Pickup
+          </label>
+        </div>
+
+        <!-- Checkboxes: Optional Add-on Preferences -->
+        <label>Additional Preferences (Optional):</label>
+        <div class="choice-group">
+          <label class="inline-choice">
+            <input type="checkbox" name="addons" value="Parking" /> Stadium
+            Parking Pass
+          </label>
+          <label class="inline-choice">
+            <input type="checkbox" name="addons" value="Jersey" /> Official Team
+            Jersey Combo
+          </label>
+        </div>
+
+        <!-- Required Terms & Conditions -->
+        <div class="terms-box">
+          <label class="inline-choice">
+            <input type="checkbox" name="terms" required /> I agree to the
+            Stadium Ticket Guidelines
+          </label>
+        </div>
+
+        <!-- Submit and Reset Buttons -->
+        <div class="form-buttons">
+          <button type="submit">Confirm Booking</button>
+          <button type="reset" class="reset-btn">Reset Form</button>
+        </div>
+      </form>
+
+      <!-- Ticket Pricing Reference Card -->
+      <aside>
+        <h3>Booking Instructions</h3>
+        <p><strong>1. Name:</strong> Must be at least 3 characters.</p>
+        <p><strong>2. Phone:</strong> Enter a valid 10-digit mobile number.</p>
+        <p><strong>3. Ticket Limit:</strong> Maximum 10 tickets per booking.</p>
+        <p>
+          <strong>4. ID Proof:</strong> Carry a valid Govt. ID on match day.
+        </p>
+      </aside>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 IPL Ticket Booking. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>

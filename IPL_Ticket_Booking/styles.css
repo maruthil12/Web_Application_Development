@@ -381,3 +381,44 @@ footer {
         font-size: 13px;
     }
 }
+/* Radio Buttons & Checkboxes */
+.choice-group {
+    margin-bottom: 18px;
+}
+
+.inline-choice {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.inline-choice input[type="radio"],
+.inline-choice input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+/* Submit & Reset Button Group */
+.form-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.reset-btn {
+    background-color: #6c757d;
+    color: var(--white);
+}
+
+.reset-btn:hover {
+    background-color: #495057;
+    color: var(--white);
+}
+.terms-box {
+    border-top: 1px solid #eeeeee;
+    padding-top: 14px;
+    margin-bottom: 18px;
+}
