@@ -20,6 +20,57 @@ function showToast(message) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  var menuToggle = document.querySelector(".menu-toggle");
+  var navLinks = menuToggle
+    ? document.getElementById(menuToggle.getAttribute("aria-controls"))
+    : null;
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", function () {
+      var isOpen = navLinks.classList.toggle("is-open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  var teamFilter = document.getElementById("team");
+  var matchCards = document.querySelectorAll(".match-card");
+
+  if (teamFilter && matchCards.length) {
+    teamFilter.addEventListener("change", function () {
+      var selectedTeam = teamFilter.value;
+
+      matchCards.forEach(function (card) {
+        var teams = card.dataset.teams.split(" ");
+        card.hidden = selectedTeam !== "all" && teams.indexOf(selectedTeam) === -1;
+      });
+    });
+  }
+
+  var viewButtons = document.querySelectorAll(".view-toggle");
+  var matchCardList = document.getElementById("match-cards");
+
+  if (matchCardList && viewButtons.length) {
+    viewButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var showList = button.dataset.view === "list";
+        matchCardList.classList.toggle("list-view", showList);
+
+        viewButtons.forEach(function (viewButton) {
+          var isActive = viewButton === button;
+          viewButton.classList.toggle("is-active", isActive);
+          viewButton.setAttribute("aria-pressed", String(isActive));
+        });
+      });
+    });
+  }
+
   var matchSelect = document.getElementById("match");
   var standSelect = document.getElementById("stand");
   var quantityInput = document.getElementById("quantity");
@@ -124,14 +175,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         showToast("Booking form ready!");
 
-        // If this index page has match options, select the clicked match.
-        var row = button.closest("tr");
+        // If this page has match options, select the clicked match.
+        var matchCard = button.closest(".match-card");
         var matchSelect = document.getElementById("match");
 
-        if (row && matchSelect) {
-          var matchName = row
-            .querySelector("td:nth-child(2)")
-            .textContent.trim();
+        if (matchCard && matchSelect) {
+          var matchName = matchCard.querySelector("h3").textContent.trim();
           matchSelect.value = matchName;
           updateBookingSummary(false);
         }

@@ -15,7 +15,12 @@
         <nav>
             <h2>IPL 2026 TICKET BOOKING</h2>
 
-            <ul>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+                <span class="menu-toggle-label">Menu</span>
+                <span class="menu-toggle-icon" aria-hidden="true">&#9776;</span>
+            </button>
+
+            <ul class="nav-links" id="primary-nav">
                 <li><a href="#matches">Matches</a></li>
                 <li><a href="booking.html">Book Ticket</a></li>
                 <li><a href="#mybookings">My Bookings</a></li>
@@ -90,74 +95,48 @@
             <option value="MI">MI</option>
             <option value="KKR">KKR</option>
             <option value="SRH">SRH</option>
+            <option value="RR">RR</option>
         </select>
 
-        <br><br>
+        <div class="view-controls" role="group" aria-label="Match schedule view">
+            <button type="button" class="view-toggle is-active" data-view="grid" aria-pressed="true">Grid view</button>
+            <button type="button" class="view-toggle" data-view="list" aria-pressed="false">List view</button>
+        </div>
 
-        <table border="1">
-
-            <thead>
-                <tr>
-                    <th>Match No.</th>
-                    <th>Teams</th>
-                    <th>Date & Time</th>
-                    <th>Venue</th>
-                    <th>General</th>
-                    <th>Premium</th>
-                    <th>VIP</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-
-            <tbody>
-
-                <tr>
-                    <td>1</td>
-                    <td>RCB vs CSK</td>
-                    <td>15 April 2026, 7:30 PM</td>
-                    <td>Bengaluru</td>
-                    <td>₹800</td>
-                    <td>₹2000</td>
-                    <td>₹5000</td>
-                    <td><a href="#booking" class="book-button">Book</a></td>
-                </tr>
-
-                <tr>
-                    <td>2</td>
-                    <td>MI vs KKR</td>
-                    <td>17 April 2026, 7:30 PM</td>
-                    <td>Mumbai</td>
-                    <td>₹900</td>
-                    <td>₹2200</td>
-                    <td>₹5500</td>
-                    <td><a href="#booking" class="book-button">Book</a></td>
-                </tr>
-
-                <tr>
-                    <td>3</td>
-                    <td>SRH vs RR</td>
-                    <td>19 April 2026, 3:30 PM</td>
-                    <td>Hyderabad</td>
-                    <td>₹700</td>
-                    <td>₹1800</td>
-                    <td>₹4500</td>
-                    <td><a href="#booking" class="book-button">Book</a></td>
-                </tr>
-
-                <tr>
-                    <td>4</td>
-                    <td>CSK vs MI</td>
-                    <td>21 April 2026, 7:30 PM</td>
-                    <td>Chennai</td>
-                    <td>₹800</td>
-                    <td>₹2000</td>
-                    <td>₹5000</td>
-                    <td><a href="#booking" class="book-button">Book</a></td>
-                </tr>
-
-            </tbody>
-
-        </table>
+        <div class="match-cards" id="match-cards">
+            <article class="match-card" data-teams="RCB CSK">
+                <p class="match-number">Match 1</p>
+                <h3>RCB vs CSK</h3>
+                <p><strong>Date &amp; time:</strong> 15 April 2026, 7:30 PM</p>
+                <p><strong>Venue:</strong> Bengaluru</p>
+                <p><strong>Ticket prices:</strong> General ₹800 · Premium ₹2000 · VIP ₹5000</p>
+                <a href="#booking" class="book-button">Book tickets</a>
+            </article>
+            <article class="match-card" data-teams="MI KKR">
+                <p class="match-number">Match 2</p>
+                <h3>MI vs KKR</h3>
+                <p><strong>Date &amp; time:</strong> 17 April 2026, 7:30 PM</p>
+                <p><strong>Venue:</strong> Mumbai</p>
+                <p><strong>Ticket prices:</strong> General ₹900 · Premium ₹2200 · VIP ₹5500</p>
+                <a href="#booking" class="book-button">Book tickets</a>
+            </article>
+            <article class="match-card" data-teams="SRH RR">
+                <p class="match-number">Match 3</p>
+                <h3>SRH vs RR</h3>
+                <p><strong>Date &amp; time:</strong> 19 April 2026, 3:30 PM</p>
+                <p><strong>Venue:</strong> Hyderabad</p>
+                <p><strong>Ticket prices:</strong> General ₹700 · Premium ₹1800 · VIP ₹4500</p>
+                <a href="#booking" class="book-button">Book tickets</a>
+            </article>
+            <article class="match-card" data-teams="CSK MI">
+                <p class="match-number">Match 4</p>
+                <h3>CSK vs MI</h3>
+                <p><strong>Date &amp; time:</strong> 21 April 2026, 7:30 PM</p>
+                <p><strong>Venue:</strong> Chennai</p>
+                <p><strong>Ticket prices:</strong> General ₹800 · Premium ₹2000 · VIP ₹5000</p>
+                <a href="#booking" class="book-button">Book tickets</a>
+            </article>
+        </div>
 
     </section>
 

@@ -55,6 +55,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 }
 
 nav h2 {
@@ -63,21 +64,31 @@ nav h2 {
   font-size: 22px;
 }
 
-nav ul {
+.nav-links {
   display: flex;
   list-style: none;
   gap: 25px;
 }
 
-nav ul li a {
+.nav-links a {
   color: var(--white);
   text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
 }
 
-nav ul li a:hover {
+.nav-links a:hover {
   color: var(--accent);
+}
+
+.menu-toggle {
+  display: none;
+  width: auto;
+  padding: 8px 12px;
+}
+
+.menu-toggle-label {
+  margin-right: 6px;
 }
 
 /* Hero Section */
@@ -202,51 +213,110 @@ nav ul li a:hover {
   margin-left: 8px;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+.view-controls {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.view-toggle {
+  width: auto;
+  padding: 9px 16px;
   background-color: var(--white);
-  margin-top: 20px;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.view-toggle.is-active,
+.view-toggle:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.match-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.match-card {
+  background-color: var(--white);
+  padding: 22px;
   border-radius: 8px;
-  overflow: hidden;
+  border-top: 4px solid var(--accent);
   box-shadow: 0 8px 24px rgba(7, 27, 58, 0.18);
 }
 
-th {
-  background-color: var(--primary);
-  color: var(--white);
-  padding: 15px;
+.match-card h3 {
+  margin: 5px 0 12px;
+  font-size: 21px;
 }
 
-td {
-  padding: 12px;
-  text-align: center;
-  border: 1px solid #dddddd;
+.match-card p {
+  margin: 8px 0;
 }
 
-#matches td:nth-child(2) {
+.match-number {
+  color: #666666;
+  font-size: 14px;
   font-weight: bold;
-  color: var(--primary);
+  text-transform: uppercase;
 }
 
-tbody tr:hover {
-  background-color: #fff4d6;
+.match-cards.list-view {
+  display: flex;
+  flex-direction: column;
 }
 
-table a {
+.match-cards.list-view .match-card {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr auto;
+  align-items: center;
+  gap: 10px 20px;
+}
+
+.match-cards.list-view .match-card h3,
+.match-cards.list-view .match-card p {
+  margin: 0;
+}
+
+.match-cards.list-view .match-number {
+  grid-column: 1;
+}
+
+.match-cards.list-view .match-card h3 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.match-cards.list-view .match-card p:not(.match-number) {
+  grid-column: 3;
+}
+
+.match-cards.list-view .match-card .book-button {
+  grid-column: 4;
+  grid-row: 1 / span 3;
+}
+
+.book-button {
   display: inline-block;
+  margin-top: 10px;
   background-color: var(--accent);
   color: var(--primary);
-  padding: 6px 14px;
+  padding: 7px 14px;
   border-radius: 4px;
   text-decoration: none;
   font-weight: bold;
-  transition: 0.2s;
 }
 
-table a:hover {
+.book-button:hover {
   background-color: var(--primary);
   color: var(--white);
+}
+
+.match-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(7, 27, 58, 0.24);
 }
 
 /* Booking Section (Form + Summary Side-by-Side) */
@@ -344,11 +414,20 @@ aside p {
   color: #666666;
 }
 
+#guidelines {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+#guidelines h2 {
+  grid-column: 1 / -1;
+}
+
 /* Guidelines Section */
 #guidelines article {
   background-color: var(--white);
   padding: 20px;
-  margin: 15px 0;
   border-radius: 8px;
   border-left: 5px solid var(--accent);
   box-shadow: 0 8px 24px rgba(7, 27, 58, 0.16);
@@ -369,14 +448,45 @@ footer {
 /* Mobile Responsive */
 @media (max-width: 768px) {
   nav {
-    flex-direction: column;
-    gap: 10px;
+    flex-wrap: wrap;
   }
 
-  nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
+  nav h2 {
+    font-size: 18px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
     gap: 12px;
+    padding: 10px 0;
+  }
+
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  .match-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .match-cards.list-view .match-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #guidelines {
+    grid-template-columns: 1fr;
+  }
+
+  #guidelines h2 {
+    grid-column: auto;
   }
 
   #home {
@@ -395,10 +505,14 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  table {
-    display: block;
-    overflow-x: auto;
-    font-size: 13px;
+  #booking {
+    flex-direction: column;
+  }
+
+  #booking form,
+  #booking aside {
+    width: 100%;
+    min-width: 0;
   }
 }
 /* Radio Buttons & Checkboxes */
